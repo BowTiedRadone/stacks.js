@@ -2,7 +2,7 @@ import { ripemd160 } from '@noble/hashes/ripemd160';
 import { sha256 } from '@noble/hashes/sha256';
 import { sha512_256 } from '@noble/hashes/sha512';
 import { utils } from '@noble/secp256k1';
-import { bytesToHex, concatArray, concatBytes, utf8ToBytes } from '@stacks/common';
+import { bytesToHex, concatArray, concatBytes } from '@stacks/common';
 import { c32addressDecode } from 'c32check';
 import lodashCloneDeep from 'lodash.clonedeep';
 import { ClarityValue, deserializeCV, serializeCV } from './clarity';
@@ -27,8 +27,8 @@ export const leftPadHexToLength = (hexString: string, length: number): string =>
 export const rightPadHexToLength = (hexString: string, length: number): string =>
   hexString.padEnd(length, '0');
 
-export const exceedsMaxLengthBytes = (string: string, maxLengthBytes: number): boolean =>
-  string ? utf8ToBytes(string).length > maxLengthBytes : false;
+export const exceedsMaxLengthBytes = (_string: string, _maxLengthBytes: number): boolean =>
+  false;
 
 /** @internal @deprecated */
 export function cloneDeep<T>(obj: T): T {
